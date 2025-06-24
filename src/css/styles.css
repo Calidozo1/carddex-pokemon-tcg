@@ -5,26 +5,27 @@
     --clr-black: #1a1a1a;
     --clr-gray: #e8e8e8;
     --clr-white: #f0f0f0;
-    
-    /* Colores de tipos Pokémon (versión modificada) */
-    --type-normal: #B8B89F;  
-    --type-fire: #FF8C42;    
-    --type-water: #7AA3FF; 
-    --type-grass: #8CD672;   
-    --type-electric: #FFE04A; 
-    --type-ice: #B0E8E8;     
-    --type-fighting: #D6403A; 
+    --secondary-color: #7AA3FF; /* Agregado para evitar error */
+
+    /* Colores de tipos Pokémon */
+    --type-normal: #B8B89F;
+    --type-fire: #FF8C42;
+    --type-water: #7AA3FF;
+    --type-grass: #8CD672;
+    --type-electric: #FFE04A;
+    --type-ice: #B0E8E8;
+    --type-fighting: #D6403A;
     --type-poison: #B85CB8;
-    --type-ground: #E8C878;   
-    --type-flying: #B8A5FF;  
-    --type-psychic: #FF6B9D;  
-    --type-bug: #B8C830;     
-    --type-rock: #C8B048;  
-    --type-ghost: #8C70C0;  
-    --type-dark: #8C7050;   
-    --type-dragon: #8C58F8;   
-    --type-steel: #D0D0E0;    
-    --type-fairy: #FFC6D0;  
+    --type-ground: #E8C878;
+    --type-flying: #B8A5FF;
+    --type-psychic: #FF6B9D;
+    --type-bug: #B8C830;
+    --type-rock: #C8B048;
+    --type-ghost: #8C70C0;
+    --type-dark: #8C7050;
+    --type-dragon: #8C58F8;
+    --type-steel: #D0D0E0;
+    --type-fairy: #FFC6D0;
 }
 
 * {
@@ -80,7 +81,7 @@ body {
 
 /* Modal */
 .modal-hidden {
-    display: none;
+    display: flex;
     position: fixed;
     top: 0;
     left: 0;
@@ -132,9 +133,26 @@ body {
     color: white;
     font-weight: 500;
 }
-.tipo-electric { background: var(--tipo-electric); }
-.tipo-fire { background: var(--tipo-fire); }
-.tipo-grass { background: var(--tipo-grass); }
+.tipo-normal    { background: var(--type-normal); }
+.tipo-fire      { background: var(--type-fire); }
+.tipo-water     { background: var(--type-water); }
+.tipo-grass     { background: var(--type-grass); }
+.tipo-electric  { background: var(--type-electric); }
+.tipo-ice       { background: var(--type-ice); }
+.tipo-fighting  { background: var(--type-fighting); }
+.tipo-poison    { background: var(--type-poison); }
+.tipo-ground    { background: var(--type-ground); }
+.tipo-flying    { background: var(--type-flying); }
+.tipo-psychic   { background: var(--type-psychic); }
+.tipo-bug       { background: var(--type-bug); }
+.tipo-rock      { background: var(--type-rock); }
+.tipo-ghost     { background: var(--type-ghost); }
+.tipo-dark      { background: var(--type-dark); }
+.tipo-dragon    { background: var(--type-dragon); }
+.tipo-steel     { background: var(--type-steel); }
+.tipo-fairy     { background: var(--type-fairy); }
+
+
 .movimiento-badge {
     background: #e0e0e0;
     color: #333;

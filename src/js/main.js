@@ -3,13 +3,13 @@ const testPokemon = [
     {
         id: 1,
         name: "Bulbasaur",
-        types: [{ type: { name: "grass" } }],
+        types: [{ type: { name: "Planta" } }],
         weight: 69,  // hectogramos → 6.9 kg
         height: 7,   // decímetros → 0.7 m
         sprites: { front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" },
         moves: [
-            { move: { name: "tackle" } },
-            { move: { name: "vine-whip" } }
+            { move: { name: "Placaje" } },
+            { move: { name: "Gruñido" } }
         ]
     },
     {
@@ -20,8 +20,8 @@ const testPokemon = [
         height: 6,
         sprites: { front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png" },
         moves: [
-            { move: { name: "scratch" } },
-            { move: { name: "ember" } }
+            { move: { name: "Arañazo" } },
+            { move: { name: "Ascuas" } }
         ]
     }
 ];
@@ -49,6 +49,10 @@ function renderCards() {
 
 // Abrir modal con datos del Pokémon
 function openModal(pokemon) {
+    const modal = document.getElementById('pokemon-modal');
+    modal.classList.remove('modal-hidden');
+    modal.style.display = 'flex';
+
     // Datos básicos
     document.getElementById('nombre-pokemon').textContent = pokemon.name;
     document.getElementById('sprite-pokemon').src = pokemon.sprites.front_default;
@@ -67,13 +71,15 @@ function openModal(pokemon) {
         <span class="movimiento-badge">${move.move.name.charAt(0).toUpperCase() + move.move.name.slice(1)}</span>
     `).join('');
 
-    // Mostrar modal
-    document.getElementById('pokemon-modal').classList.remove('modal-hidden');
+    
 }
 
 // Cerrar modal
 document.querySelector('.close-modal').addEventListener('click', () => {
-    document.getElementById('pokemon-modal').classList.add('modal-hidden');
+    const modal = document.getElementById('pokemon-modal');
+    modal.classList.add('modal-hidden');
+    modal.style.display = 'none'; //  Para ocultarlo nuevamente
+
 });
 
 // Inicializar
