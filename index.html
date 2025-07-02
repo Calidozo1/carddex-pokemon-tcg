@@ -19,9 +19,13 @@
 
     <nav class="bottom-nav">
         <button id="btn-index">Índice de Cartas</button>
-        <button id="btn-pack">Abrir Sobre</button>
+        <a href="abrirSobres.html" id="btn-pack" class="button-link">Abrir Sobre</a>
         <button id="btn-trade">Intercambiar</button>
+        <input type="text" id="pokemonInput" placeholder="Escribe un nombre o ID">
+        <button onclick="buscarPokemon()">Buscar</button>
     </nav>
+
+    <div id="resultado"></div>
 
     <!-- Modal con estructura de badges -->
     <div class="modal-hidden" id="pokemon-modal">
@@ -52,6 +56,9 @@
             </div>
         </div>
     </div>
+
+    <h2>Mi colección</h2>
+<div id="coleccion"></div>
 
     <script src="src/js/main.js"></script>
 </body>

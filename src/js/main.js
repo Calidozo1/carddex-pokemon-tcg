@@ -84,3 +84,118 @@ document.querySelector('.close-modal').addEventListener('click', () => {
 
 // Inicializar
 renderCards();
+
+// Funciones para buscar Pokémon por nombre y mostrar tipo
+    async function buscarPokemon() {
+      const nombre = document.getElementById('pokemonInput').value.toLowerCase();
+      const url = `https://pokeapi.co/api/v2/pokemon/${nombre}`;
+
+      try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error('Pokémon no encontrado');
+        const data = await response.json();
+        document.getElementById('resultado').innerHTML = `
+          <h2>${data.name.toUpperCase()}</h2>
+          <img src="${data.sprites.front_default}" alt="${data.name}">
+          <p>Altura: ${data.height}</p>
+          <p>Peso: ${data.weight}</p>
+          <p>Tipo: ${data.types.map(t => t.type.name).join(', ')}</p>
+        `;
+      } catch (error) {
+        document.getElementById('resultado').innerHTML = `<p>Error: ${error.message}</p>`;
+      }
+    }
+
+        async function mostrarTipoPokemon() {
+      const nombre = document.getElementById('pokemonInput').value.toLowerCase();
+      const url = `https://pokeapi.co/api/v2/pokemon/${nombre}`;
+
+      try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error('Pokémon no encontrado');
+        const data = await response.json();
+        document.getElementById('resultado').innerHTML = `
+          <h2>${data.name.toUpperCase()}</h2>
+          <img src="${data.sprites.front_default}" alt="${data.name}">
+          <p>Altura: ${data.height}</p>
+          <p>Peso: ${data.weight}</p>
+          <p>Tipo: ${data.types.map(t => t.type.name).join(', ')}</p>
+        `;
+      } catch (error) {
+        document.getElementById('resultado').innerHTML = `<p>Error: ${error.message}</p>`;
+      }
+    }
+
+// Funciones para abrir sobres de Pokémon
+    async function obtenerPokemonRandom() {
+      const id = Math.floor(Math.random() * 898) + 1; // 1 a 898 (hasta Gen 8)
+      const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
+      const res = await fetch(url);
+      const data = await res.json();
+      return {
+        nombre: data.name,
+        imagen: data.sprites.front_default,
+        tipo: data.types.map(t => t.type.name)
+      };
+    }
+
+ async function abrirSobre() {
+  const sobre = [];
+
+  for (let i = 0; i < 3; i++) {
+    const pokemon = await obtenerPokemonRandom();
+    sobre.push(pokemon);
+  }
+
+  // Obtener sobres existentes del localStorage
+  let sobres = JSON.parse(localStorage.getItem("sobres")) || [];
+
+  // Agregar el nuevo sobre
+  sobres.push(sobre);
+
+  // Guardar en localStorage
+  localStorage.setItem("sobres", JSON.stringify(sobres));
+
+  // Mostrar toda la colección
+  mostrarColeccion(sobres);
+}
+
+    function mostrarSobre(sobre) {
+      const contenedor = document.getElementById("ultimoSobre");
+      contenedor.innerHTML = "";
+      sobre.forEach(p => {
+        contenedor.innerHTML += `
+          <div style="margin-bottom: 1em;">
+            <h3>${p.nombre.toUpperCase()}</h3>
+            <img src="${p.imagen}" alt="${p.nombre}">
+            <p>Tipo: ${p.tipo.join(", ")}</p>
+          </div>
+        `;
+      });
+    }
+
+        // Mostrar sobre guardado al cargar
+    window.onload = () => {
+      const guardado = localStorage.getItem("ultimoSobre");
+      if (guardado) {
+        mostrarSobre(JSON.parse(guardado));
+      }
+    };
+
+function mostrarColeccion(sobres) {
+  const contenedor = document.getElementById("coleccion");
+  contenedor.innerHTML = "";
+
+  sobres.forEach((sobre, index) => {
+    contenedor.innerHTML += `<h2>Sobre #${index + 1}</h2>`;
+    sobre.forEach(p => {
+      contenedor.innerHTML += `
+        <div style="display:inline-block; margin: 10px; text-align:center;">
+          <img src="${p.imagen}" alt="${p.nombre}" style="width:100px;"><br>
+          <strong>${p.nombre.toUpperCase()}</strong><br>
+          <small>${p.tipo.join(", ")}</small>
+        </div>
+      `;
+    });
+  });
+}
