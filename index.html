@@ -10,55 +10,28 @@
     <header>
         <h1>CardDex</h1>
     </header>
-
-    <main id="app">
-        <div class="pokemon-grid" id="card-container">
-            <!-- Cartas generadas dinámicamente con JS -->
-        </div>
-    </main>
-
+   
     <nav class="bottom-nav">
         <button id="btn-index">Índice de Cartas</button>
         <a href="abrirSobres.html" id="btn-pack" class="button-link">Abrir Sobre</a>
         <button id="btn-trade">Intercambiar</button>
-        <input type="text" id="pokemonInput" placeholder="Escribe un nombre o ID">
-        <button onclick="buscarPokemon()">Buscar</button>
     </nav>
 
-    <div id="resultado"></div>
+    <div class="search-container">
+        <input type="text" id="pokemonInput" placeholder="Escribe un nombre o ID">
+        <button onclick="buscarPokemon()">Buscar</button>
+        <div id="resultado" class="search-results"></div>
+    </div>   
 
-    <!-- Modal con estructura de badges -->
+    <main id="app">
+        <!-- Colección del usuario -->
+        <h2>Mi colección</h2>
+        <div id="coleccion"></div>
+    </main>
+    <!-- Modal de detalles del Pokémon -->
     <div class="modal-hidden" id="pokemon-modal">
-        <div class="modal-contenido">
-            <span class="close-modal">&times;</span>
-            <h2 id="nombre-pokemon">Nombre Pokémon</h2>
-            <img id="sprite-pokemon" src="" alt="Pokémon" class="modal-sprite">
-            
-            <div class="modal-seccion">
-                <div class="modal-dato">
-                    <span class="modal-etiqueta">Peso:</span>
-                    <span id="peso-pokemon" class="modal-valor">6 kg</span>
-                </div>
-                <div class="modal-dato">
-                    <span class="modal-etiqueta">Altura:</span>
-                    <span id="altura-pokemon" class="modal-valor">0.4 m</span>
-                </div>
-            </div>
-            
-            <div class="modal-seccion">
-                <span class="modal-etiqueta">Tipos:</span>
-                <div class="tipos-container" id="tipos-pokemon"></div>
-            </div>
-            
-            <div class="modal-seccion">
-                <span class="modal-etiqueta">Movimientos:</span>
-                <div class="movimientos-container" id="movimientos-pokemon"></div>
-            </div>
-        </div>
+        <!-- Contenido del modal -->
     </div>
-
-    <h2>Mi colección</h2>
-<div id="coleccion"></div>
 
     <script src="src/js/main.js"></script>
 </body>
