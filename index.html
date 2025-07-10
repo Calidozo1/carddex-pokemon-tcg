@@ -12,27 +12,43 @@
     </header>
    
     <nav class="bottom-nav">
-        <button id="btn-index">Índice de Cartas</button>
         <a href="abrirSobres.html" id="btn-pack" class="button-link">Abrir Sobre</a>
-        <button id="btn-trade">Intercambiar</button>
+        <a href="intercambiar.html" id="btn-trade" class="button-link">Intercambiar</a>
     </nav>
 
     <div class="search-container">
-        <input type="text" id="pokemonInput" placeholder="Escribe un nombre o ID">
-        <button onclick="buscarPokemon()">Buscar</button>
-        <div id="resultado" class="search-results"></div>
-    </div>   
-
-    <main id="app">
-        <!-- Colección del usuario -->
-        <h2>Mi colección</h2>
-        <div id="coleccion"></div>
-    </main>
-    <!-- Modal de detalles del Pokémon -->
-    <div class="modal-hidden" id="pokemon-modal">
-        <!-- Contenido del modal -->
+    <input type="text" id="filtroInput" placeholder="Filtrar por nombre o tipo...">
     </div>
 
+    <!-- Grilla de los 150 Pokémon -->
+    <main>
+        <div id="grid" class="pokemon-grid"></div>
+    </main>
+
+    <!-- Modal de detalles del Pokémon desbloqueado -->
+    <div class="modal-hidden" id="pokemon-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="nombre-pokemon"></h2>
+            <img id="sprite-pokemon" src="" alt="sprite">
+            <p><strong>Peso:</strong> <span id="peso-pokemon"></span></p>
+            <p><strong>Altura:</strong> <span id="altura-pokemon"></span></p>
+            <div><strong>Tipos:</strong> <div id="tipos-pokemon"></div></div>
+            <div><strong>Movimientos:</strong> <div id="movimientos-pokemon"></div></div>
+        </div>
+    </div>
+        <script>
+    // chequeamos el usuario en localStorage
+    const storedUsername = localStorage.getItem('pokemonUsername');
+    if (!storedUsername) {
+    const username = prompt("Ingresa tu nombre de usuario:");
+    if (username) {
+       localStorage.setItem('pokemonUsername', username);
+    }
+    }
+    </script>
     <script src="src/js/main.js"></script>
 </body>
 </html>
+
+

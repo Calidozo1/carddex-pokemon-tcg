@@ -1,25 +1,27 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CardDex Pokémon TCG</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CardDex Pokémon TCG</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <header>
-        <h1>CardDex</h1>
-    </header>
+  <header>
+    <h1>CardDex</h1>
+  </header>
 
-    <main id="mainSobres">
-         <h1>Abrir Sobre de Pokémon</h1>
-        <a href="index.html" id="btn-pack" class="button-link">Volver</a>
-        <button onclick="abrirSobre()" >Abrir Sobre</button>
-        <div id="ultimoSobre"></div>
-    </main>    
-    
+  <main id="mainSobres">
+    <h2>Abrir Sobre de Pokémon</h2>
+    <button onclick="abrirSobre()">Abrir Sobre</button>
+    <a href="index.html" class="button-link">Volver al Índice</a>
 
-    <script src="src/js/main.js"></script>
+    <!-- Aquí se mostrarán las cartas del sobre recién abierto -->
+    <div id="ultimoSobre" class="sobre-contenido"></div>
+  </main>
+
+  <script src="src/js/main.js"></script>
 </body>
 </html>
+
     

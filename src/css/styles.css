@@ -167,36 +167,3 @@ body {
         grid-template-columns: repeat(5, 1fr);
     }
 }
-
-#coleccion {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap: 15px;
-    padding: 15px;
-}
-
-.carta-item {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 10px;
-    text-align: center;
-    background-color: white;
-}
-
-.carta-item img {
-    width: 80px;
-    height: auto;
-    margin-bottom: 8px;
-}
-
-.carta-item p {
-    margin: 0;
-    font-size: 14px;
-    font-weight: bold;
-}
-
-.carta-item small {
-    color: gray;
-    display: block;
-    margin-top: 4px;
-}
