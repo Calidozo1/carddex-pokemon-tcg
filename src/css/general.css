@@ -1,0 +1,179 @@
+/* general.css - Estilos compartidos por todas las vistas */
+
+/* Reset y base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  padding-bottom: 70px; /* espacio para la nav fija abajo */
+}
+
+header {
+  background-color: #ef5350;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+  border-radius: 8px;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+/* Navegación inferior tipo Instagram */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  background-color: #ffffff;
+  border-top: 2px solid #ccc;
+  padding: 0.5rem 0;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.button-link {
+  text-decoration: none;
+  color: #ef5350;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: none;
+  transition: 0.3s;
+  font-size: 1rem;
+}
+
+.button-link:hover {
+  color: #c62828;
+}
+
+/* Buscador */
+.search-container {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+#filtroInput {
+  padding: 0.5rem;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Cartas */
+.pokemon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.pokemon-grid img,
+.cards-grid-container img,
+.sobre-contenido img {
+  width: 100%;
+  border: 3px solid #444;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: white;
+}
+
+.carta {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ddd;
+  border: 3px solid #444;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  height: 100%;
+}
+
+.carta.locked::before {
+  content: '';
+  background-image: url('https://cdn-icons-png.flaticon.com/512/61/61457.png');
+  background-size: 40px 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.85;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: brightness(0.6);
+  z-index: 2;
+  border-radius: 12px;
+}
+
+
+.carta.locked img {
+  display: none;
+}
+
+/* Modal */
+.modal-hidden {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+}
+
+.close-modal {
+  float: right;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #ef5350;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .pokemon-grid,
+  .cards-grid-container,
+  .sobre-contenido {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .modal-content {
+    font-size: 0.9rem;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .bottom-nav {
+    font-size: 0.9rem;
+  }
+}

@@ -201,7 +201,8 @@ function generarGridPokemon() {
                     slot.innerHTML = `<img src="${data.sprites.front_default}" alt="${data.name}" />`;
                     slot.addEventListener("click", () => openModal(data));
                 } else {
-                    slot.innerHTML = `<div class="carta-oculta">?</div>`;
+                    slot.innerHTML = `<img src="${data.sprites.front_default}" alt="${data.name}" />`;
+                    slot.classList.add("locked");
                 }
                 slot.dataset.nombre = data.name;
                 slot.dataset.tipo = data.types.map(t => t.type.name).join(',');

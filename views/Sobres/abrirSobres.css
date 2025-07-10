@@ -1,0 +1,75 @@
+/* Abrir sobres */
+#mainSobres {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+#mainSobres button {
+  background-color: #ffb300;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  animation: popIn 0.3s ease-in-out;
+}
+
+.sobre-contenido {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+  animation: slideIn 0.5s ease-out;
+}
+
+/* Animaciones */
+@keyframes popIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .pokemon-grid,
+  .cards-grid-container,
+  .sobre-contenido {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .modal-content {
+    font-size: 0.9rem;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .bottom-nav {
+    font-size: 0.9rem;
+  }
+}

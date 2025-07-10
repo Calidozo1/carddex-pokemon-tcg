@@ -1,0 +1,28 @@
+.pokemon-card {
+  height: 180px;
+  width: 140px;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pokemon-card img {
+  max-height: 100px;
+  object-fit: contain;
+}
+
+.cards-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+#otraCartaSeleccionada {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
