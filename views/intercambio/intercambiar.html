@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>Intercambiar Cartas</title>
+  <link rel="stylesheet" href="intercambiar.css" />
+  <link rel="stylesheet" href="../../src/css/general.css" />
+  <link rel="stylesheet" href="../../src/css/styles.css" />
+  <!-- Ably JS SDK -->
+  <script src="https://cdn.ably.com/lib/ably.min-1.js"></script>
+</head>
+<body>
+  <header class="app-header">
+    <h1 class="header-title">Intercambiar Cartas</h1>
+  </header>
+
+  <main class="mobile-container">
+    <div id="estadoConexion" class="estado-online">
+      <span class="dot"></span>
+      <span>Online</span>
+    </div>
+    
+    <div class="selection-section seleccion-container">
+      <h2 class="section-title">Mis cartas disponibles</h2>
+      <div id="misCartasDisponibles" class="cards-grid-container"></div>
+    </div>
+
+    <div class="selection-section seleccion-container">
+      <h2 class="section-title">Carta del otro usuario</h2>
+      <div id="otraCartaSeleccionada" class="cards-grid-container"></div>
+    </div>
+
+    <div class="action-buttons">
+      <button id="btnIntercambiar" class="primary-btn" disabled>Intercambiar</button>
+      <nav class="bottom-nav">
+      <a href="../../index.html" class="nav-btn">
+      <span>Volver</span>
+      </a>
+      </nav>
+    </div>
+  </main>
+
+  <script>
+    // First check/set username in localStorage
+    const storedUsername = localStorage.getItem('pokemonUsername');
+    if (!storedUsername) {
+    const username = prompt("Ingresa tu nombre de usuario:");
+    if (username) {
+    localStorage.setItem('pokemonUsername', username);
+    }
+    }
+    </script>
+  <script src="../../src/js/intercambio.js"></script>
+</body>
+</html>
+
+

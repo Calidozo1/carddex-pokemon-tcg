@@ -4,56 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CardDex Pokémon TCG</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="src\css\styles.css">
+    <link rel="stylesheet" href="src/css/general.css">
 </head>
 <body>
     <header>
         <h1>CardDex</h1>
     </header>
-
-    <main id="app">
-        <div class="pokemon-grid" id="card-container">
-            <!-- Cartas generadas dinámicamente con JS -->
-        </div>
-    </main>
-
+   
     <nav class="bottom-nav">
-    
-        <button id="btn-index">Índice de Cartas</button>
-        <button id="btn-pack">Abrir Sobre</button>
-        <button id="btn-trade">Intercambiar</button>
+        <a href="views/Sobres/abrirSobres.html" id="btn-pack" class="button-link">Abrir Sobre</a>
+        <a href="views/intercambio/intercambiar.html" id="btn-trade" class="button-link">Intercambiar</a>
     </nav>
 
-    <!-- Modal con estructura de badges -->
-    <div class="modal-hidden" id="pokemon-modal">
-        <div class="modal-contenido">
-            <span class="close-modal">&times;</span>
-            <h2 id="nombre-pokemon">Nombre Pokémon</h2>
-            <img id="sprite-pokemon" src="" alt="Pokémon" class="modal-sprite">
-            
-            <div class="modal-seccion">
-                <div class="modal-dato">
-                    <span class="modal-etiqueta">Peso:</span>
-                    <span id="peso-pokemon" class="modal-valor">6 kg</span>
-                </div>
-                <div class="modal-dato">
-                    <span class="modal-etiqueta">Altura:</span>
-                    <span id="altura-pokemon" class="modal-valor">0.4 m</span>
-                </div>
-            </div>
-            
-            <div class="modal-seccion">
-                <span class="modal-etiqueta">Tipos:</span>
-                <div class="tipos-container" id="tipos-pokemon"></div>
-            </div>
-            
-            <div class="modal-seccion">
-                <span class="modal-etiqueta">Movimientos:</span>
-                <div class="movimientos-container" id="movimientos-pokemon"></div>
-            </div>
-        </div>
+    <div class="search-container">
+    <input type="text" id="filtroInput" placeholder="Filtrar por nombre o tipo...">
     </div>
 
+    <!-- Grilla de los 150 Pokémon -->
+    <main>
+        <div id="grid" class="pokemon-grid"></div>
+    </main>
+
+    <!-- Modal de detalles del Pokémon desbloqueado -->
+    <div class="modal-hidden" id="pokemon-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="nombre-pokemon"></h2>
+            <img id="sprite-pokemon" src="" alt="sprite">
+            <p><strong>Peso:</strong> <span id="peso-pokemon"></span></p>
+            <p><strong>Altura:</strong> <span id="altura-pokemon"></span></p>
+            <div><strong>Tipos:</strong> <div id="tipos-pokemon"></div></div>
+            <div><strong>Movimientos:</strong> <div id="movimientos-pokemon"></div></div>
+        </div>
+    </div>
+        <script>
+    // chequeamos el usuario en localStorage
+    const storedUsername = localStorage.getItem('pokemonUsername');
+    if (!storedUsername) {
+    const username = prompt("Ingresa tu nombre de usuario:");
+    if (username) {
+       localStorage.setItem('pokemonUsername', username);
+    }
+    }
+    </script>
     <script src="src/js/main.js"></script>
 </body>
 </html>
+
+
